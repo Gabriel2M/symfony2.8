@@ -64,3 +64,32 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+assetic:
+    debug: '%kernel.debug%'
+    use_controller: false
+    filters:
+        cssrewrite: ~
+    assets:
+        bootstrap_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css
+            output: "assets/css/bootstrap.min.css"
+        bootstrap_css_map:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map
+            output: "assets/css/bootstrap.min.css.map"
+        fontawesome_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/fontawesome.min.css
+                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/solid.min.css
+                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/regular.min.css
+            output: "assets/css/fontawesome.bundle.min.css"
+        jquery_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/bower-asset/jquery/dist/jquery.min.js
+            output: "assets/js/jquery.min.js"
+        bootstrap_bundle_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js
+            output: "assets/js/bootstrap.bundle.min.js"
