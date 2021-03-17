@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    appname: 'Symfony 2.8'
 
 framework:
     #esi: ~
@@ -34,6 +35,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    cache: false
+    globals:
+        appname: '%appname%'
 
 # Doctrine Configuration
 doctrine:
