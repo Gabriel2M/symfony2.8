@@ -93,3 +93,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js
             output: "assets/js/bootstrap.bundle.min.js"
+        bootstrap_bundle_js_map:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js.map
+            output: "assets/js/bootstrap.bundle.min.js.map"
