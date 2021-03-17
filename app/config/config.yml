@@ -83,12 +83,6 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map
             output: "assets/css/bootstrap.min.css.map"
-        fontawesome_css:
-            inputs:
-                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/fontawesome.min.css
-                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/solid.min.css
-                - %kernel.root_dir%/../vendor/fortawesome/font-awesome/css/regular.min.css
-            output: "assets/css/fontawesome.bundle.min.css"
         jquery_js:
             inputs:
                 - %kernel.root_dir%/../vendor/bower-asset/jquery/dist/jquery.min.js

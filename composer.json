@@ -17,7 +17,6 @@
         "bower-asset/jquery": "3.5.1",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
-        "fortawesome/font-awesome": "~5.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
