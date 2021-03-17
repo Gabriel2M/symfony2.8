@@ -1,3 +1,8 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+remove_trailing_slash:
+    path: /{url}
+    defaults: { _controller: AppBundle:Redirecting:removeTrailingSlash }
+    requirements:
+        url: .*/$
