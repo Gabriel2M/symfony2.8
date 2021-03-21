@@ -110,3 +110,4 @@ knp_paginator:
         distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
     template:
         pagination: 'pagination/pagination.html.twig'     # sliding pagination controls template
+        sortable: 'pagination/sortable_link.html.twig' # sort link template
