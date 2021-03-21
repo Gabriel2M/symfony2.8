@@ -23,6 +23,14 @@ class EntidadeController extends Controller
         return $this->save(new Entidade, $request, ['title' => 'Adicionar Entidade']);
     }
 
+    /**
+     * @Route("/edit/{id}", name="entidade_edit")
+     */
+    public function editAction(Request $request, Entidade $entidade)
+    {
+        return $this->save($entidade, $request, ['title' => 'Editar Entidade']);
+    }
+
     protected function save(Entidade $entidade, Request $request, $params = [])
     {
         $form = $this->createFormBuilder($entidade, ['attr' => [
