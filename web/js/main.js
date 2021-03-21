@@ -1,3 +1,8 @@
+// global tooltip
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 // global toast
 $('.toast').toast('show')
 
