@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Entidade;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
@@ -28,7 +29,17 @@ class EntidadeController extends Controller
      */
     public function editAction(Request $request, Entidade $entidade)
     {
-        return $this->save($entidade, $request, ['title' => 'Editar Entidade']);
+        return $this->save($entidade, $request, [
+            'title' => 'Editar Entidade',
+            'delete_form' => $this->createFormBuilder(null, ['attr' => [
+                'id' => 'delete-form',
+                'modal-confirmation' => 'Deletar?'
+            ]])
+                ->setAction($this->generateUrl('entidade_delete', ['id' => $entidade->getId()]))
+                ->setMethod('DELETE')
+                ->getForm()
+                ->createView()
+        ]);
     }
 
     protected function save(Entidade $entidade, Request $request, $params = [])
@@ -63,6 +74,22 @@ class EntidadeController extends Controller
         }
 
         $params['form'] = $form->createView();
+        $params['entidade'] = $entidade;
         return $this->render('entidade/save.html.twig', $params);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="entidade_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Entidade $entidade)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($entidade);
+        $entityManager->flush();
+
+        $this->addFlash('warning', 'Entidade Deletada');
+        return $this->redirectToRoute('entidade_list');
     }
 }
