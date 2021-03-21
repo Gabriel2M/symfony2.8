@@ -39,6 +39,7 @@
 		</nav>
 	</header>
 	<main class="container mt-2">
+		{{ include('_flash_messages.html.twig') }}
 		{% block content %}
 		<h1>{{ title }}</h1>
 		{% endblock %}

@@ -1,3 +1,6 @@
+// global toast
+$('.toast').toast('show')
+
 // modal confirmation
 $('form[modal-confirmation]').submit(function (event) {
     let $form = $(this),
