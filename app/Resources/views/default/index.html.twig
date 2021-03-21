@@ -5,7 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="text-center">
-	<h1>{{ appname }} - Bem Vindo!</h1>
+<h1>Bem Vindo!</h1>
+<div class="card">
+    <div class="card-header lead">
+        {{ appname }}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item h5">
+            Esta aplicação foi desenvolvida utilizando-se
+            <a href="https://symfony.com/doc/2.8/index.html" target="_blank">Symfony 2.8</a>
+        </li>
+        <li class="list-group-item h5">Senha Login: 123</li>
+        <li class="list-group-item ">
+            <div class="card-body p-0">
+                <h5 class="card-title mb-1">Autor:</h5>
+                <p class="card-text lead ml-3 mb-0">Gabriel Mendes <br> &lt;gabriel.mendes.rf@gmail.com&gt;</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="card-body p-0">
+                <h5 class="card-title mb-1">Repositório:</h5>
+                <p class="card-text lead ml-3 mb-0"><a href="https://github.com/Gabriel2M/symfony2.8"
+                        target="_blank">https://github.com/Gabriel2M/symfony2.8</a></p>
+            </div>
+        </li>
+        <li class="list-group-item pb-1 pt-2 rounded-0" style="background-color: rgba(0,0,0,.015);">
+            Versão do Symfony em utilização: {{ symfonyversion }}
+        </li>
+    </ul>
 </div>
 {% endblock %}
