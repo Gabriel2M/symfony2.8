@@ -96,3 +96,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js.map
             output: "assets/js/bootstrap.bundle.min.js.map"
+        jquery_inputmask_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/robinherbots/jquery.inputmask/dist/jquery.inputmask.min.js
+            output: "assets/js/jquery.inputmask.min.js"
