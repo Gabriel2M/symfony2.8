@@ -1,0 +1,32 @@
+{% if pageCount > 1 %}
+<ul class="list-inline lead mb-0">
+    <li class="list-inline-item">
+        <a {% if previous is defined %} href="{{ path(route, query|merge({(pageParameterName): previous})) }}"
+            {% else %}class="text-muted" {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor" viewBox="0 0 16 19">
+                <path fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg>
+        </a>
+    </li>
+
+    {% for page in pagesInRange %}
+    <li class="list-inline-item">
+        <a {% if page != current %} href="{{ path(route, query|merge({(pageParameterName): page})) }}"
+            {% else %}class="text-muted" {% endif %}>
+            {{ page }}
+        </a>
+    </li>
+    {% endfor %}
+
+    <li class="list-inline-item">
+        <a {% if next is defined %} href="{{ path(route, query|merge({(pageParameterName): next})) }}"
+            {% else %}class="text-muted" {% endif %}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor" viewBox="0 0 16 19">
+                <path fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+{% endif %}
