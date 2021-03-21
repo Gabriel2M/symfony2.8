@@ -37,6 +37,8 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         appname: '%appname%'
+    form_themes:
+        - "form/bootstrap_4.6_layout.html.twig"
 
 # Doctrine Configuration
 doctrine:
