@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Entidade;
+use AppBundle\Repository\EntidadeRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,6 +17,49 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class EntidadeController extends Controller
 {
+    /**
+     * @Route("", name="entidade_list")
+     */
+    public function listAction(Request $request)
+    {
+        /** @var EntidadeRepository */
+        $repository = $this->getDoctrine()
+            ->getRepository(Entidade::class);
+        $queryBuilder = $repository->createQueryBuilder('ent');
+
+        $entidade = new Entidade;
+
+        $form = $this->createFormBuilder($entidade, ['validation_groups' => ['search']])
+            ->setMethod('GET')
+            ->add('string')
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+            $queryBuilder
+                ->where('ent.string LIKE :string')
+                ->setParameter('string', '%' . $entidade->getString() . '%');
+
+        $pagination = $this->get('knp_paginator')->paginate(
+            $queryBuilder->getQuery(),
+            $request->query->getInt('page', 1),
+            3,
+            [
+                'defaultSortFieldName' => 'ent.string',
+                'defaultSortDirection' => 'asc'
+            ]
+        );
+
+        $pagination->setCustomParameters(['pagination' => $pagination]);
+
+        return $this->render('entidade/list.html.twig', [
+            'title' => 'Entidades',
+            'form' => $form->createView(),
+            'pagination' => $pagination,
+        ]);
+    }
+
     /**
      * @Route("/new", name="entidade_new")
      */
