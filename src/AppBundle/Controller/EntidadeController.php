@@ -100,6 +100,7 @@ class EntidadeController extends Controller
             ])
             ->add('data', DateType::class, [
                 'label' => 'Data',
+                'format' => 'dMy'
             ])
             ->add('valor', MoneyType::class, [
                 'label' => 'Valor|HINT|Teste a validação tentando cadastrar um valor acima de R$ 99.999.999,99',
