@@ -24,7 +24,7 @@
 {%- endblock form_label %}
 
 {% block form_widget_simple -%}
-{% if not valid %}
+{% if errors|length > 0 %}
 {%- set attr = attr|merge({class: (attr.class|default('') ~ ' is-invalid')|trim}) -%}
 {% endif %}
 {{- parent() -}}

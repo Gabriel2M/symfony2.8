@@ -6,6 +6,7 @@ use AppBundle\Entity\Entidade;
 use AppBundle\Repository\EntidadeRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
@@ -62,6 +63,7 @@ class EntidadeController extends Controller
 
     /**
      * @Route("/new", name="entidade_new")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction(Request $request)
     {
@@ -70,6 +72,7 @@ class EntidadeController extends Controller
 
     /**
      * @Route("/edit/{id}", name="entidade_edit")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Entidade $entidade)
     {
@@ -125,6 +128,7 @@ class EntidadeController extends Controller
     /**
      * @Route("/delete/{id}", name="entidade_delete")
      * @Method("DELETE")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteAction(Entidade $entidade)
     {

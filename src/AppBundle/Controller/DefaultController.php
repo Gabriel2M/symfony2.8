@@ -13,6 +13,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig', ['symfonyversion' => Kernel::VERSION]);
+        return $this->render('default/index.html.twig', [
+            'admin_password' => $this->getParameter('admin_password'),
+            'symfony_version' => Kernel::VERSION
+        ]);
     }
 }
