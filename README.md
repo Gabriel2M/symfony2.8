@@ -1,4 +1,4 @@
-Symfony2.8
+Symfony2.8 App
 ===
 
 Software desenvolvido para entrevista de Desenvolvedor Web Full Stack (cuja vaga conquistei 😁).
