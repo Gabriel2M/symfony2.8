@@ -1,69 +1,65 @@
-Symfony Standard Edition
-========================
+Symfony2.8
+===
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Software desenvolvido para entrevista de Desenvolvedor Web Full Stack (cuja vaga conquistei 😁).
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+Briefing
+---
 
-What's inside?
---------------
+Crud de uma entidade abstrata com um campo string, um campo data e um campo valor.
 
-The Symfony Standard Edition is configured with the following defaults:
+Requisitos
+---
+  * Php 7.1 
 
-  * An AppBundle you can use to start coding;
+  * Symfony 2.8
 
-  * Twig as the only configured template engine;
+  * Mysql
 
-  * Doctrine ORM/DBAL;
+  * Git
 
-  * Swiftmailer;
+  * Bootstrap
+  
+  * Jquery
 
-  * Annotations enabled for everything.
+  * Web Responsivo.
 
-It comes pre-configured with the following bundles:
+Instalação
+---
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+É extremamente simples a instalação do sistema utilizando docker, basta executar os seguintes comandos:
+  1. Clone o repositório:
+``` 
+$ git clone https://github.com/gabriel2m/symfony2.8.git
+```
+  2. Entre no diretório criado:
+```
+$ cd symfony2.8
+```
+  2. Crie o arquivo de varias ambiente, a partir de .env.example, e o altere com as configurações que desejar:
+```
+$ cp .env.example .env
+$ vim .env
+```
+  3. Coloque os containers em execução:
+```
+$ docker-compose up -d
+```
+  4. Instale as dependências e defina as configurações que desejar de acordo com o que for solicitado pelo script:
+```
+$ docker-compose exec app composer install
+```
+  5. Crie as tableas do banco de dados:
+```
+$ docker-compose exec app php app/console doctrine:schema:create
+```
+  6. Tudo pronto 🙌 Agora é so acessar via seu navegador: http://127.0.0.1
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/2.8/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.8/doctrine.html
-[8]:  https://symfony.com/doc/2.8/templating.html
-[9]:  https://symfony.com/doc/2.8/security.html
-[10]: https://symfony.com/doc/2.8/email.html
-[11]: https://symfony.com/doc/2.8/logging.html
-[12]: https://symfony.com/doc/2.8/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+Screenshots
+---
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/index.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/search.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/confirmacao-salvar.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/salva.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/tootip.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/deletada.png?raw=true" />
