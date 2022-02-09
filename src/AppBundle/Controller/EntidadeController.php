@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/entidade")
+ * @Route("/entidades")
  */
 class EntidadeController extends Controller
 {

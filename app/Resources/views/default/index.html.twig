@@ -1,37 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-{{ appname }}
+	{{ appname }}
 {% endblock %}
 
 {% block content %}
-<h1>Bem Vindo!</h1>
-<div class="card">
-    <div class="card-header lead">
-        {{ appname }}
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item h5">
-            Esta aplicação foi desenvolvida utilizando-se
-            <a href="https://symfony.com/doc/2.8/index.html" target="_blank">Symfony 2.8</a>
-        </li>
-        <li class="list-group-item h5">Senha Login: {{ admin_password }}</li>
-        <li class="list-group-item ">
-            <div class="card-body p-0">
-                <h5 class="card-title mb-1">Autor:</h5>
-                <p class="card-text lead ml-3 mb-0">Gabriel Mendes <br> &lt;gabriel.mendes.rf@gmail.com&gt;</p>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="card-body p-0">
-                <h5 class="card-title mb-1">Repositório:</h5>
-                <p class="card-text lead ml-3 mb-0"><a href="https://github.com/Gabriel2M/symfony2.8"
-                        target="_blank">https://github.com/Gabriel2M/symfony2.8</a></p>
-            </div>
-        </li>
-        <li class="list-group-item pb-1 pt-2 rounded-0" style="background-color: rgba(0,0,0,.015);">
-            Versão do Symfony em utilização: {{ symfony_version }}
-        </li>
-    </ul>
-</div>
+	<h1>Bem Vindo!</h1>
+	<div class="card">
+		<div class="card-header lead">
+			{{ appname }}
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item h5">
+				Esta aplicação foi desenvolvida utilizando
+				<a href="https://symfony.com/doc/2.8/index.html" target="_blank">Symfony 2.8</a>
+			</li>
+			<li class="list-group-item h5">
+				<div class="card-body p-0">
+					<h5 class="card-title mb-1">Senha para login:</h5>
+					<p class="card-text lead ml-3 mb-0">
+						{{ admin_password }}
+					</p>
+				</div>
+			</li>
+			<li class="list-group-item ">
+				<div class="card-body p-0">
+					<h5 class="card-title mb-1">Autor:</h5>
+					<p class="card-text lead ml-3 mb-0">
+						Gabriel2M 
+						(<a href="https://linktr.ee/gabriel2m" target="_blank" rel="noopener noreferrer">
+							<svg height="20" viewbox="-7.19 -5.39 814.38 679.39" xmlns="http://www.w3.org/2000/svg"><path d="m297.53 18.87c-13.49-24.26-48.54-24.26-62.02 0l-231.91 420.58c-10.79 21.57 5.39 45.83 29.66 45.83h156.4v159.06c0 16.18 13.49 29.66 29.67 29.66h91.68c16.18 0 29.66-13.48 29.66-29.66v-159.06h-43.14c-18.88 0-32.36-13.48-35.06-29.66 0-5.39 0-10.78 2.7-16.23l129.44-234.55z" fill="#39e09b"/><path d="m502.47 18.87c13.49-24.26 48.54-24.26 62.02 0l231.91 420.58c10.79 21.57-5.39 45.83-29.66 45.83h-153.71v159.06c0 16.18-13.48 29.66-29.69 29.66h-97.05c-16.18 0-29.66-13.48-29.66-29.66v-159.06h43.15c18.87 0 32.35-13.48 35.05-29.66 0-5.39 0-10.78-2.7-16.23l-129.43-234.49z" fill="#28bf7b"/></svg>
+							gabriel2m
+						</a>)
+					</p>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="card-body p-0">
+					<h5 class="card-title mb-1">Repositório:</h5>
+					<p class="card-text lead ml-3 mb-0">
+						<a href="https://github.com/Gabriel2M/symfony2.8" target="_blank">https://github.com/gabriel2m/symfony2.8</a>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
 {% endblock %}
