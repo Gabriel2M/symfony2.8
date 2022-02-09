@@ -1,0 +1,49 @@
+version: '3'
+networks:
+  app: null
+services:
+  app:
+    build: .
+    working_dir: /var/www/app
+    volumes:
+      - .:/var/www/app
+      - ./docker/app/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - app
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/app
+      - ./docker/nginx/app.conf:/etc/nginx/conf.d/app.conf
+    networks:
+      - app
+    depends_on:
+      - app
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    networks:
+      - app
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:fpm-alpine
+    ports:
+      - 81:80
+    environment:
+      - PMA_HOST:db
+      - PMA_USER:${DB_USERNAME}
+      - PMA_PASSWORD=${DB_PASSWORD}
+    networks:
+      - app
