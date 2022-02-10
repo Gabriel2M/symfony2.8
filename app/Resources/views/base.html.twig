@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-100">
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>
-		{% block title %}
-		{{ title }} | {{ appname }}
+		<title>
+			{% block title %}
+				{{ title }}
+				|
+				{{ appname }}
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+			<link href="/css/main.css" rel="stylesheet"/>
 		{% endblock %}
-	</title>
-	{% block stylesheets %}
-	<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/css/main.css" rel="stylesheet" />
-	{% endblock %}
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-</head>
+		<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+	</head>
 
-<body class="d-flex flex-column h-100">
-	{{ include('_confirmation_modal.html.twig') }}
-	<header>
-		{% set navigation = [
+	<body class="d-flex flex-column h-100">
+		{{ include('_confirmation_modal.html.twig') }}
+		<header>
+			{% set navigation = [
 			{link: path('home'), label: '
 			<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="currentColor" viewBox="0 0 16 20">
 				<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -51,32 +53,30 @@
 				Login'
 			},
 		] %}
-		<nav class="mb-4">
-			<ul class="nav nav-tabs">
-				{% for item in navigation %}
-				<li class="nav-item">
-					<a class="nav-link
-					{% if app.request.baseUrl ~ app.request.pathInfo == item.link or app.request.requestUri == item.link %} active{% endif %}"
-						href="{{ item.link }}">{{ item.label|raw }}</a>
-				</li>
-				{% endfor %}
-			</ul>
-		</nav>
-	</header>
-	<main class="container mt-2">
-		{{ include('_flash_messages.html.twig') }}
-		{% block content %}
-		<h1>{{ title }}</h1>
+			<nav class="mb-4">
+				<ul class="nav nav-tabs">
+					{% for item in navigation %}
+						<li class="nav-item">
+							<a class="nav-link {% if app.request.baseUrl ~ app.request.pathInfo == item.link or app.request.requestUri == item.link %} active{% endif %}" href="{{ item.link }}">{{ item.label|raw }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		</header>
+		<main class="container mt-2">
+			{{ include('_flash_messages.html.twig') }}
+			{% block content %}
+				<h1>{{ title }}</h1>
+			{% endblock %}
+		</main>
+		<footer class="mt-auto text-center pt-4">
+			<p class="text-muted pt-4 mt-3 mb-2 border-top">{{ appname }}<br>2021</p>
+		</footer>
+		{% block javascripts %}
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/bootstrap.bundle.min.js"></script>
+			<script src="/js/main.js"></script>
 		{% endblock %}
-	</main>
-	<footer class="mt-auto text-center pt-4">
-		<p class="text-muted pt-4 mt-3 mb-2 border-top">{{ appname }}<br>2021</p>
-	</footer>
-	{% block javascripts %}
-	<script src="/assets/js/jquery.min.js"></script>
-	<script src="/assets/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/main.js"></script>
-	{% endblock %}
-</body>
+	</body>
 
 </html>

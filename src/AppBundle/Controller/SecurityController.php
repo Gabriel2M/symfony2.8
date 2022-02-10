@@ -27,7 +27,7 @@ class SecurityController extends Controller
             ->setAction($this->generateUrl('login_check'))
             ->add('_username', HiddenType::class, ['attr' => ['value' => 'admin']])
             ->add('_password', PasswordType::class, [
-                'label' => 'Senha|HINT|' . $this->getParameter('admin_password'),
+                'label' => 'Senha|HINT|A senha é "' . $this->getParameter('admin_password') . '"',
             ])
             ->getForm();
         if ($return = $request->query->get('return', null))

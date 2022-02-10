@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    appname: 'Symfony 2.8 App'
+    appname: 'Symfony2.8 App'
 
 framework:
     #esi: ~
