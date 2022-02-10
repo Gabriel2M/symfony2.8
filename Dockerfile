@@ -1,5 +1,7 @@
 FROM php:7.1-fpm-alpine
 
+WORKDIR /var/www/app
+
 RUN apk update --no-cache \
     && apk add --no-cache \
     git \
