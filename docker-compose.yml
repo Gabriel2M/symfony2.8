@@ -8,10 +8,10 @@ services:
     volumes:
       - .:/var/www/app
       - ./docker/app/php.ini:/usr/local/etc/php/php.ini
+    env_file:
+      - .env
     networks:
       - app
-    extra_hosts:
-      - host.docker.internal:host-gateway
     depends_on:
       - db
 
@@ -32,8 +32,8 @@ services:
     volumes:
       - ./docker/db/data:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
     networks:
       - app
 
@@ -43,7 +43,7 @@ services:
       - 81:80
     environment:
       - PMA_HOST:db
-      - PMA_USER:${DB_USERNAME}
-      - PMA_PASSWORD=${DB_PASSWORD}
+      - PMA_USER:root
+      - PMA_PASSWORD=${DATABASE_PASSWORD}
     networks:
       - app

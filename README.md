@@ -45,11 +45,11 @@ $ vim .env
 ```
 $ docker-compose up -d
 ```
-  4. Instale as dependências e defina as configurações que desejar de acordo com o que for solicitado pelo script:
+  4. Instale as dependências:
 ```
 $ docker-compose exec app composer install
 ```
-  5. Crie as tableas do banco de dados:
+  5. Crie as tabelas do banco de dados:
 ```
 $ docker-compose exec app php app/console doctrine:schema:create
 ```
