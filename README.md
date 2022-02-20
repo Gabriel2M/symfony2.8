@@ -57,9 +57,9 @@ $ docker-compose exec app php app/console doctrine:schema:create
 
 Screenshots
 ---
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/index.png?raw=true" />
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/search.png?raw=true" />
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/confirmacao-salvar.png?raw=true" />
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/salva.png?raw=true" />
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/tootip.png?raw=true" />
-<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screeshots/deletada.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/index.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/search.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/confirmacao-salvar.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/salva.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/tootip.png?raw=true" />
+<img width="100%" src="https://github.com/gabriel2m/symfony2.8/blob/master/screenshots/deletada.png?raw=true" />
